@@ -9,14 +9,12 @@ import { TextDetectionFormTypes } from "./types";
 
 const TextDetection = () => {
   const { methods } = useTextAnalyzeFrom();
-  const { mutateAsync, data, isPending } = useSendTextToAnalyze();
+  const { mutateAsync, isPending } = useSendTextToAnalyze();
   const onSubmit = (data: TextDetectionFormTypes) => {
     mutateAsync(data);
   };
 
   const { data: selectOption } = useGetMethods();
-  console.log(data?.result, "apidatapage");
-  console.log(selectOption, "selectOption");
 
   const selectOptionDropdown = selectOption?.map((item) => ({
     label: item?.label,
@@ -31,7 +29,7 @@ const TextDetection = () => {
     );
   }
   return (
-    <Flex m={"80px"} boxShadow={"2xl"} p={6} borderRadius={"16px"}>
+    <Flex boxShadow={"2xl"} p={6} borderRadius={"16px"}>
       <FormProvider methods={methods} onSubmit={onSubmit}>
         <VStack align={"start"} gap={6}>
           <TextAreaFieldInput
@@ -41,7 +39,12 @@ const TextDetection = () => {
             label="Enter text to detect"
           />
           <Box display={"flex"} gap={4} flexDirection={"column"}>
-            <ReactSelect options={selectOptionDropdown ?? []} name="method" />
+            <ReactSelect
+              options={selectOptionDropdown ?? []}
+              name="method"
+              label="Selecte analzying method"
+              required
+            />
             <Button type="submit">Submit</Button>
           </Box>
         </VStack>

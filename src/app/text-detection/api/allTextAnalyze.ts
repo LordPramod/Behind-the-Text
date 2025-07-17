@@ -1,12 +1,13 @@
 import axios from "axios";
 import { TEXT_ANALYZE_ENDPOINT } from "./Url";
+import { TextApiResponse } from "../types";
 
 export const analyzeText = async (data: { text: string; method: string }) => {
-  const response = await axios.post(
+  const response = await axios.post<{ result: TextApiResponse }>(
     TEXT_ANALYZE_ENDPOINT.ANALYZE,
     {
       text: data.text,
-      method: data.method, // Ensure method is included in the request
+      method: data.method,
     },
     {
       headers: {

@@ -6,7 +6,7 @@ export const useSendTextToAnalyze = () => {
   return useMutation({
     mutationKey: [TEXT_ANALYZE_ENDPOINT.ANALYZE],
     mutationFn: analyzeText,
-    onSuccess: (data) => data,
+    onSuccess: (data) => data?.result,
     onError: (err) => {
       toaster.create({
         title: err?.message,
