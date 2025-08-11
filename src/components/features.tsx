@@ -1,9 +1,15 @@
 "use client";
 
 import ProductImage from "@/assets/product-image.png";
-import {animate, motion, useMotionTemplate, useMotionValue, ValueAnimationTransition,} from "motion/react";
-import {ComponentPropsWithoutRef, useEffect, useRef, useState} from "react";
-import {Icons} from "@/components/icons";
+import {
+  animate,
+  motion,
+  useMotionTemplate,
+  useMotionValue,
+  ValueAnimationTransition,
+} from "motion/react";
+import { ComponentPropsWithoutRef, useEffect, useRef, useState } from "react";
+import { Icons } from "@/components/icons";
 
 const tabs = [
   {
@@ -32,7 +38,8 @@ const tabs = [
   },
 ];
 
-type FeatureTabProps = (typeof tabs)[number] & ComponentPropsWithoutRef<"div"> & { selected: boolean }
+type FeatureTabProps = (typeof tabs)[number] &
+  ComponentPropsWithoutRef<"div"> & { selected: boolean };
 
 const FeatureTab = (props: FeatureTabProps) => {
   const tabRef = useRef<HTMLDivElement>(null);
@@ -46,7 +53,7 @@ const FeatureTab = (props: FeatureTabProps) => {
 
     xPercentage.set(0);
     yPercentage.set(0);
-    const {height, width} = tabRef.current?.getBoundingClientRect();
+    const { height, width } = tabRef.current?.getBoundingClientRect();
     const circumference = height * 2 + width * 2;
     const times = [
       0,
@@ -66,6 +73,7 @@ const FeatureTab = (props: FeatureTabProps) => {
 
     animate(xPercentage, [0, 100, 100, 0, 0], options);
     animate(yPercentage, [0, 0, 100, 100, 0], options);
+    // eslint-disable-next-line
   }, [props.selected]);
 
   return (
@@ -76,12 +84,12 @@ const FeatureTab = (props: FeatureTabProps) => {
     >
       {props.selected && (
         <motion.div
-          style={{maskImage}}
+          style={{ maskImage }}
           className="absolute inset-0 -m-px border border-[#A369FF] rounded-xl"
         />
       )}
       <div className="size-12 border border-muted rounded-lg inline-flex items-center justify-center">
-        <props.icon className="size-5"/>
+        <props.icon className="size-5" />
       </div>
       <div className="font-medium">{props.title}</div>
       {props.isNew && (
@@ -148,7 +156,8 @@ export function Features() {
           ))}
         </div>
         <motion.div className="border border-muted rounded-xl p-2.5 mt-3">
-          <div className="aspect-video bg-cover border border-muted rounded-lg"
+          <div
+            className="aspect-video bg-cover border border-muted rounded-lg"
             style={{
               backgroundPosition: backgroundPosition.get(),
               backgroundSize: backgroundSize.get(),
