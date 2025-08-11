@@ -1,7 +1,7 @@
 export const siteConfig = {
-  name: "AI Startup Landing Page",
-  description: "AI SaaS Landing Page. Built by MrInspection.",
-  creator: "MrInspection",
+  name: "Behind The Text",
+  description: "Text detection models",
+  creator: "LordPramod",
   links: {
     repositoryUrl: "https://github.com/MrInspection/ia-startup-landing-page",
     creatorGithubUrl: "https://github.com/LordPramod",
@@ -13,7 +13,8 @@ export const siteConfig = {
     imageHeight: 630,
   },
   twitter: {
-    creator: "@MrInspection",
+    // dont have user name later will add
+    creator: "#",
     cardType: "summary_large_image",
     imageUrl: "https://splabs-ai-startup-lp.vercel.app/opengraph-image.png",
   },

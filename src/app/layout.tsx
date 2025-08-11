@@ -8,7 +8,7 @@ import { Provider } from "./shared";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "AI Startup Landing Page",
+  title: "Behind The Text",
   description: siteConfig.description,
   creator: siteConfig.creator,
   openGraph: {
