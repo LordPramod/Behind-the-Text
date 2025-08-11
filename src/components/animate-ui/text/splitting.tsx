@@ -12,8 +12,11 @@ import {
 
 type DefaultSplittingTextProps = {
   motionVariants?: {
+    // eslint-disable-next-line
     initial?: Record<string, any>;
+    // eslint-disable-next-line
     animate?: Record<string, any>;
+    // eslint-disable-next-line
     transition?: Record<string, any>;
     stagger?: number;
   };
