@@ -5,6 +5,7 @@ export type TextDetectionFormTypes = yup.InferType<typeof TextDetectionForm>;
 
 export type TextApiResponse = {
   text: string;
+  creator: string;
   probability: string;
   perplexity: string;
   threshold: string;
