@@ -53,6 +53,11 @@ const PromptComponent = ({ methods }: PropsType) => {
   //     </div>
   //   );
   // }
+  console.log(methods.watch("method"));
+  useEffect(() => {
+    if (methods.watch("method") === undefined)
+      methods.setValue("method", "perplexity");
+  }, [methods]);
 
   return (
     <div className="w-full max-w-2xl p-4">

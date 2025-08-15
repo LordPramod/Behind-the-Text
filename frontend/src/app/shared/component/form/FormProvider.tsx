@@ -11,7 +11,7 @@ export const FormProvider = <TFieldValues extends FieldValues>({
 }: FormProviderProps<TFieldValues>) => {
   return (
     <ReactHookFormProvider {...methods}>
-      <form onSubmit={methods.handleSubmit(onSubmit)} className="h-full">
+      <form onSubmit={methods.handleSubmit(onSubmit)} className="h-full0">
         {children}
       </form>
     </ReactHookFormProvider>

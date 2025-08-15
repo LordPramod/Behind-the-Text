@@ -1,10 +1,11 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import PromptComponent from "./Test";
 import { Icons } from "@/components/icons";
 import { useSendTextToAnalyze, useTextAnalyzeFrom } from "./hooks";
 import { FormProvider } from "../shared";
 import { TextDetectionFormTypes } from "./types";
+import toast, { Toaster } from "react-hot-toast";
 
 type AIResponse = {
   creator: string;
@@ -21,10 +22,20 @@ const TextDetection = () => {
   const { methods } = useTextAnalyzeFrom();
   const { mutateAsync } = useSendTextToAnalyze();
 
+  const {
+    formState: { errors },
+  } = methods;
+
+  useEffect(() => {
+    if (errors.text?.message) toast.error(errors.text.message);
+    methods.clearErrors("text");
+    // eslint-disable-next-line
+  }, [errors]);
   const onSubmit = (formData: TextDetectionFormTypes) => {
     setUserPrompts((prev) => [...prev, formData.text]);
 
     setAiResponses((prev) => [...prev, null]);
+    methods.setValue("text", "");
 
     mutateAsync(formData, {
       onSuccess: (data) => {
@@ -50,6 +61,9 @@ const TextDetection = () => {
       },
     });
   };
+
+  const convertProbability = (probability: string) =>
+    (Number(probability) * 100).toFixed(2) + "%";
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen w-screen p-4 bg-[#0e0024]">
@@ -83,7 +97,7 @@ const TextDetection = () => {
                     </p>
                     <p>
                       <span className="font-semibold">Probability:</span>{" "}
-                      {aiResponses[index].probability}
+                      {convertProbability(aiResponses[index].probability)}
                     </p>
                     <p>
                       <span className="font-semibold">Perplexity:</span>{" "}
@@ -119,6 +133,7 @@ const TextDetection = () => {
           <PromptComponent methods={methods} />
         </FormProvider>
       </div>
+      <Toaster position="bottom-right" />
     </div>
   );
 };
