@@ -14,7 +14,7 @@ import { Icons } from "@/components/icons";
 const tabs = [
   {
     icon: Icons.gauge,
-    title: "User-friendly dashboard",
+    title: "Direct Classification",
     isNew: false,
     backgroundPositionX: 0,
     backgroundPositionY: 0,
@@ -22,7 +22,7 @@ const tabs = [
   },
   {
     icon: Icons.click,
-    title: "One-click optimization",
+    title: "Domain Classification",
     isNew: false,
     backgroundPositionX: 98,
     backgroundPositionY: 100,
@@ -30,7 +30,7 @@ const tabs = [
   },
   {
     icon: Icons.stars,
-    title: "Smart keyword generator",
+    title: "Perplexity Scoring",
     isNew: true,
     backgroundPositionX: 100,
     backgroundPositionY: 27,
@@ -139,11 +139,11 @@ export function Features() {
     <section className="py-20 md:py-24">
       <div className="container">
         <h2 className="text-5xl md:text-6xl font-medium text-center tracking-tighter">
-          Elevate your SEO efforts.
+          AI Text Detection, Your Way
         </h2>
         <p className="text-white/70 text-lg md:text-xl max-w-2xl mx-auto text-center tracking-tight mt-5">
-          From small startups to large enterprises, our AI-driven tool has
-          revolutionized the way businesses approach SEO.
+          From classrooms to corporate offices, our technology is redefining how
+          we identify and understand AI-created content.
         </p>
         <div className="mt-10 grid lg:grid-cols-3 gap-3">
           {tabs.map((tab, index) => (

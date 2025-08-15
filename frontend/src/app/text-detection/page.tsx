@@ -103,7 +103,6 @@ const TextDetection = () => {
                     </p>
                   </div>
                 ) : (
-                  // Loading Spinner
                   <div className="flex justify-center items-center w-full h-full">
                     <div className="relative w-10 h-10 rounded-full bg-gradient-to-b from-[#8c45ff] to-[#4a208a] shadow-[0px_0px_12px_#b894ff]">
                       <div className="absolute inset-0 rounded-full border-4 border-white/30 border-t-white animate-spin"></div>

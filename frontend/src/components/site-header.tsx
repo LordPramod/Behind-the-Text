@@ -21,19 +21,19 @@ export default function SiteHeader() {
           <section className="max-md:hidden">
             <nav className="flex gap-8 items-center text-sm">
               <Link
-                href="#"
+                href="/features"
                 className="text-white/70 hover:text-white transition"
               >
                 Features
               </Link>
               <Link
-                href="#"
+                href="/portfolio"
                 className="text-white/70 hover:text-white transition"
               >
                 Developer
               </Link>
               <Link
-                href="#"
+                href="/change-log"
                 className="text-white/70 hover:text-white transition"
               >
                 Changelog
